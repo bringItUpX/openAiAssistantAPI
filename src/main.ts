@@ -13,15 +13,15 @@ const systemPrompt = await fs.promises.readFile('system-prompt.md', { encoding: 
 
 const assistant = await openai.beta.assistants.createOrUpdate({
   model: 'gpt-4o',
-  name: 'Bike Advisor Assistant',
-  description: 'An assistant that helps you select the correct bike for your needs.',
+  name: 'Web Programming Advisor Assistant',
+  description: 'An assistant that explains you programming concepts',
   instructions: systemPrompt,
 });
 
 const thread = await openai.beta.threads.create();
 await openai.beta.threads.messages.create(thread.id, {
   role: 'assistant',
-  content: 'Hello, how can I help you selecting the correct bike for your needs?',
+  content: 'Hello, how can I help you with programming technics?',
 });
 
 
